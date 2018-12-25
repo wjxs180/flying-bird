@@ -1,4 +1,22 @@
 // 铅笔的基类
-export class Pencil{
+import { Sprite } from '../base/Sprite'
+
+export class Pencil extends Sprite{
+    //top 高度
+    constructor(image,top){
+        super(image, 0, 0, image.width, image.height, 
+            //x在右侧看不到的位置
+            window.innerWidth, 0, image.width, image.height);
+        this.top = top;
+
+        //移动速度
+        this.moveSpeed = 2;
+    }
+
+    draw(){
+        this.x = this.x - this.moveSpeed;
+        super.draw(this.img, 0, 0, this.srcW, this.srcH, this.x,
+            this.y, this.width, this.height);
+    }
 
 }
