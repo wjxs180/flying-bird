@@ -2,6 +2,7 @@
 
 import { Pencil } from "./Pencil";
 import { Sprite } from "../base/Sprite";
+import { DataStore } from '../base/DataStore'
 
 export class DownPencil extends Pencil{
     constructor(top){
@@ -10,7 +11,7 @@ export class DownPencil extends Pencil{
     }
 
     draw(){
-        this.gap = window.innerHeight / 5;
+        this.gap = DataStore.getInstance().canvas.height / 4;
         this.y = this.top + this.gap;
         super.draw();
     }
