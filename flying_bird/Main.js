@@ -31,7 +31,17 @@ export class Main {
         this.dataStore.canvas = this.canvas;
         this.dataStore.ctx = this.ctx;
         this.dataStore.res = map;
+        this.createBackgroundMusic();
         this.init();
+    }
+
+    //创建背景音乐
+    createBackgroundMusic() {
+        const audio = wx.createInnerAudioContext();
+        audio.autoplay = true
+        audio.loop = true
+        audio.src = 'audios/bgm.mp3';
+        
     }
 
     //初始化

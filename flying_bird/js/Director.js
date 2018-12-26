@@ -149,8 +149,10 @@ export class Director {
             console.log('游戏结束');
             this.dataStore.get('startButton').draw();//开始按钮
             cancelAnimationFrame(this.dataStore.get('timer'));
-            //是否资源
+            //释放资源
             this.dataStore.destroy();
+            //触发微信小游戏垃圾回收
+            wx.triggerGC();
         }
     }
 }
